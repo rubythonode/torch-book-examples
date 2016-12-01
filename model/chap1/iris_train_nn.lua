@@ -43,7 +43,7 @@ for epoch = 1, maxIteration do
     local h_x = model:forward(trainSet.data)
     local J = loss:forward(h_x, trainSet.label)
     -- For debugging only
-    print(J)
+    print(string.format("current loss: %.2f", J))
     local dJ_dh_x = loss:backward(h_x, trainSet.label)
     -- Computes and updates gradTheta
     model:backward(trainSet.data, dJ_dh_x)
@@ -62,5 +62,5 @@ for i=1, testSet.data:size(1) do
         correct = correct + 1
     end
 end
-print(string.format("%.2f%s", 100 * correct / testSet.data:size(1), "% correct"))
+print(string.format("Evaluation: %.2f%s", 100 * correct / testSet.data:size(1), "% correct"))
 
