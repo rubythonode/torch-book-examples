@@ -19,7 +19,7 @@ for line in file:lines() do
         local x1, x2, x3, x4, species = unpack(line:split(","))
         local input = torch.Tensor{{x1, x2, x3, x4}};
 
-				local output = nil
+		local output = nil
         if (species == "Iris-setosa") then
             output = torch.Tensor{1}
         elseif (species == "Iris-versicolor") then
